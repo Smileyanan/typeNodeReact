@@ -32,7 +32,39 @@ export default defineConfig({
     ie: 11,
   },
   // umi routes: https://umijs.org/docs/routing
-  routes: [],
+  routes: [
+    {
+      path: '/',
+      component: '../layouts/BlankLayout',
+      routes: [
+        {
+          path: '/user',
+          component: '../layouts/UserLayout',
+          routes: [
+            {
+              component: '404',
+            },
+          ],
+        },
+        {
+          path: '/',
+          component: '../layouts/BasicLayout',
+          Routes: ['src/pages/Authorized'],
+          authority: ['admin', 'user'],
+        },
+      ],
+    },
+    {
+      path: '/wechat',
+      routes: [
+        {
+          path: '/wechat/index',
+          name: '哈哈哈哈哈',
+          component: './WeChat',
+        },
+      ],
+    },
+  ],
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn
   theme: {
     // ...darkTheme,
