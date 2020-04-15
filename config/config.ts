@@ -1,4 +1,3 @@
-// https://umijs.org/config/
 import { defineConfig, utils } from 'umi';
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
@@ -25,9 +24,6 @@ export default defineConfig({
     antd: true,
     baseNavigator: true,
   },
-  dynamicImport: {
-    loading: '@/components/PageLoading/index',
-  },
   targets: {
     ie: 11,
   },
@@ -38,29 +34,16 @@ export default defineConfig({
       component: '../layouts/BlankLayout',
       routes: [
         {
-          path: '/user',
-          component: '../layouts/UserLayout',
-          routes: [
-            {
-              component: '404',
-            },
-          ],
-        },
-        {
           path: '/',
           component: '../layouts/BasicLayout',
           Routes: ['src/pages/Authorized'],
           authority: ['admin', 'user'],
-        },
-      ],
-    },
-    {
-      path: '/wechat',
-      routes: [
-        {
-          path: '/wechat/index',
-          name: '哈哈哈哈哈',
-          component: './WeChat',
+          routes: [
+            {
+              path: '/wechat',
+              component: '../pages/WeChat',
+            },
+          ],
         },
       ],
     },
