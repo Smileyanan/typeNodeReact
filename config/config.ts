@@ -31,19 +31,13 @@ export default defineConfig({
   routes: [
     {
       path: '/',
-      component: '../layouts/BlankLayout',
+      component: '../layouts/BasicLayout',
+      Routes: ['src/pages/Authorized'],
+      authority: ['admin', 'user'],
       routes: [
         {
-          path: '/',
-          component: '../layouts/BasicLayout',
-          Routes: ['src/pages/Authorized'],
-          authority: ['admin', 'user'],
-          routes: [
-            {
-              path: '/wechat',
-              component: '../pages/WeChat',
-            },
-          ],
+          path: '/wechat',
+          component: '../pages/WeChat',
         },
       ],
     },

@@ -1,58 +1,25 @@
-/**
- * Ant Design Pro v4 use `@ant-design/pro-layout` to handle Layout.
- * You can view component api by:
- * https://github.com/ant-design/ant-design-pro-layout
- */
 import ProLayout, {
-  MenuDataItem,
   BasicLayoutProps as ProLayoutProps,
   Settings,
   DefaultFooter,
-  SettingDrawer,
 } from '@ant-design/pro-layout';
-import React, { useEffect } from 'react';
-import { Link, useIntl, Dispatch } from 'umi';
+import React from 'react';
+import { Link, useIntl } from 'umi';
 import { GithubOutlined } from '@ant-design/icons';
 import logo from '../assets/logo.png';
 
 export interface BasicLayoutProps extends ProLayoutProps {
-  breadcrumbNameMap: {
-    [path: string]: MenuDataItem;
-  };
-  route: ProLayoutProps['route'] & {
-    authority: string[];
-  };
   settings: Settings;
-  dispatch: Dispatch;
 }
-export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
-  breadcrumbNameMap: {
-    [path: string]: MenuDataItem;
-  };
-};
-/**
- * use Authorized check all menu item
- */
+
 const defaultFooterDom = (
   <DefaultFooter
-    copyright="2019 蚂蚁金服体验技术部出品"
+    copyright="umi-antd-pro构建项目to-yanan"
     links={[
       {
-        key: 'Ant Design Pro',
-        title: 'Ant Design Pro',
-        href: 'https://pro.ant.design',
-        blankTarget: true,
-      },
-      {
-        key: 'github',
+        key: 'gitlab',
         title: <GithubOutlined />,
-        href: 'https://github.com/ant-design/ant-design-pro',
-        blankTarget: true,
-      },
-      {
-        key: 'Ant Design',
-        title: 'Ant Design',
-        href: 'https://ant.design',
+        href: 'https://gitlab.com/YaNan_Q',
         blankTarget: true,
       },
     ]}
@@ -60,30 +27,7 @@ const defaultFooterDom = (
 );
 
 const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
-  const { dispatch, settings } = props;
-  /**
-   * constructor
-   */
-
-  useEffect(() => {
-    if (dispatch) {
-      dispatch({
-        type: 'user/fetchCurrent',
-      });
-    }
-  }, []);
-  /**
-   * init variables
-   */
-
-  const handleMenuCollapse = (payload: boolean): void => {
-    if (dispatch) {
-      dispatch({
-        type: 'global/changeLayoutCollapsed',
-        payload,
-      });
-    }
-  }; // get children authority
+  const { settings } = props;
 
   const { formatMessage } = useIntl();
   return (
@@ -97,7 +41,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
             {titleDom}
           </Link>
         )}
-        onCollapse={handleMenuCollapse}
         menuItemRender={(menuItemProps, defaultDom) => {
           if (menuItemProps.isUrl || menuItemProps.children || !menuItemProps.path) {
             return defaultDom;
@@ -132,15 +75,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
         {...props}
         {...settings}
       ></ProLayout>
-      <SettingDrawer
-        settings={settings}
-        onSettingChange={(config) =>
-          dispatch({
-            type: 'settings/changeSetting',
-            payload: config,
-          })
-        }
-      />
     </>
   );
 };
