@@ -1,7 +1,12 @@
 import React from 'react';
+import { Card, Form } from 'antd';
 
 const WeChat = () => {
-  return <div>4qwrqwer</div>;
+  return (
+    <Card title="测试标题">
+      <Form layout="inline"></Form>
+    </Card>
+  );
 };
 
 export default WeChat;
