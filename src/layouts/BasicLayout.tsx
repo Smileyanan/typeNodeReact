@@ -27,9 +27,7 @@ const defaultFooterDom = (
   />
 );
 
-const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
-  const { settings } = props;
-
+const BasicLayout: React.FC<BasicLayoutProps> = () => {
   const { formatMessage } = useIntl();
   return (
     <>
@@ -49,7 +47,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
           return <Link to={menuItemProps.path}>{defaultDom}</Link>;
         }}
-        itemRender={(route, params, routes, paths) => {
+        itemRender={(route, routes, paths) => {
           const first = routes.indexOf(route) === 0;
           return first ? (
             <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
@@ -59,9 +57,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
         }}
         footerRender={() => defaultFooterDom}
         menuDataRender={() => [indexRouter]}
-        {...props}
-        {...settings}
-       />
+      />
     </>
   );
 };

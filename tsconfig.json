@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "outDir": "build/dist",
-    "module": "esnext",
-    "target": "esnext",
-    "lib": ["esnext", "dom"],
+    "outDir": "dist",
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM"],
     "sourceMap": true,
     "baseUrl": ".",
     "jsx": "react",
@@ -16,11 +16,10 @@
     "allowJs": true,
     "skipLibCheck": true,
     "experimentalDecorators": true,
-    "strict": true,
+    "strict": false,
     "paths": {
-      "@/*": ["./src/*"],
+      "@xb/*": ["./src/*"],
       "@@/*": ["./src/.umi/*"]
     }
-  },
-  "exclude": ["node_modules", "build", "dist", "scripts", "src/.umi/*", "webpack", "jest"]
+  }
 }
