@@ -5,7 +5,8 @@
   "description": "An out-of-box UI solution for enterprise applications",
   "scripts": {
     "build": "umi build",
-    "start": "umi dev"
+    "start": "umi dev",
+    "lint-staged": "lint-staged"
   },
   "husky": {
     "hooks": {
@@ -16,8 +17,12 @@
     "lint-staged"
   ],
   "lint-staged": {
-    "**/*.less": "stylelint --syntax less",
-    "**/*.{js,jsx,ts,tsx}": [
+    "./**/*.less": [
+      "prettier --write",
+      "stylelint --fix",
+      "git add"
+    ],
+    "./**/*.{js,jsx,ts,tsx}": [
       "prettier --write",
       "eslint --fix",
       "git add"

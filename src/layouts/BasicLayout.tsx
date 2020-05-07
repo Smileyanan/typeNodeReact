@@ -7,7 +7,7 @@ import React from 'react';
 import { Link, useIntl } from 'umi';
 import { GithubOutlined } from '@ant-design/icons';
 import logo from '../assets/logo.png';
-import indexRouter from '../Routes/index';
+import indexRouter from '../Routes/index'; // 路由
 
 export interface BasicLayoutProps extends ProLayoutProps {
   settings: Settings;
@@ -61,7 +61,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
         menuDataRender={() => [indexRouter]}
         {...props}
         {...settings}
-      ></ProLayout>
+       />
     </>
   );
 };
