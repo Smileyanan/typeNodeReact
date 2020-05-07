@@ -7,6 +7,7 @@ import React from 'react';
 import { Link, useIntl } from 'umi';
 import { GithubOutlined } from '@ant-design/icons';
 import logo from '../assets/logo.png';
+import indexRouter from '../Routes/index';
 
 export interface BasicLayoutProps extends ProLayoutProps {
   settings: Settings;
@@ -57,12 +58,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
           );
         }}
         footerRender={() => defaultFooterDom}
-        menuDataRender={() => [
-          {
-            path: '/wechat',
-            name: '内容',
-          },
-        ]}
+        menuDataRender={() => [indexRouter]}
         {...props}
         {...settings}
       ></ProLayout>
