@@ -27,7 +27,7 @@ const defaultFooterDom = (
   />
 );
 
-const BasicLayout: React.FC<BasicLayoutProps> = () => {
+const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const { formatMessage } = useIntl();
   return (
     <>
@@ -57,6 +57,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = () => {
         }}
         footerRender={() => defaultFooterDom}
         menuDataRender={() => [indexRouter]}
+        {...props}
       />
     </>
   );

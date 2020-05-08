@@ -1,4 +1,5 @@
 export default {
-  name: '内容',
   path: '/wechat',
+  name: '内容',
+  component: '../pages/WeChat',
 };
