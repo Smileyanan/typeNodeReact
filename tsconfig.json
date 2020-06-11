@@ -18,7 +18,7 @@
     "experimentalDecorators": true,
     "strict": false,
     "paths": {
-      "@xb/*": ["./src/*"],
+      "@/*": ["./src/*"],
       "@@/*": ["./src/.umi/*"]
     }
   }

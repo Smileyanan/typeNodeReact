@@ -33,7 +33,7 @@ export default defineConfig({
     {
       path: '/',
       component: '../layouts/BasicLayout',
-      routes: [indexRouter],
+      routes: indexRouter,
     },
   ],
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn
